@@ -1,0 +1,56 @@
+.post {
+  margin-bottom: 30px;
+}
+
+.post-body {
+  margin-top: 20px;
+}
+
+@media (min-width: 992px) {
+  .post-body {
+    margin-top: 0;
+  }
+}
+
+.post-body .votes {
+  text-align: center;
+  width: 15px;
+}
+
+.post-body .upvote-arrow {
+  display: block;
+  border-bottom: 9px solid #534540;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 9px solid transparent;
+}
+
+.post-body .downvote-arrow {
+  display: block;
+  border-bottom: 9px solid transparent;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 9px solid #534540;
+}
+
+.post-body .upvote-count {
+  display: block;
+  color: #303030;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.post-body .title {
+  margin: 0 0 7px 0;
+  color: #ff3300;
+  font-size: 18px;
+  letter-spacing: 1.3px;
+  line-height: 1.2;
+}
+
+.post-body .description {
+  line-height: 1.5;
+  letter-spacing: 1px;
+  text-align: justify;
+}
