@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col } from 'react-bootstrap';
+import Header from './components/Header';
 
 class App extends Component {
   render() {
@@ -7,7 +8,7 @@ class App extends Component {
       <Grid>
         <Row>
           <Col sm={7} smOffset={2}>
-            <h1>Hola</h1>
+            <Header />
           </Col>
         </Row>
       </Grid>
