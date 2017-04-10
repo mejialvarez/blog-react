@@ -43,10 +43,18 @@
 
 .post-body .title {
   margin: 0 0 7px 0;
-  color: #ff3300;
   font-size: 18px;
   letter-spacing: 1.3px;
   line-height: 1.2;
+}
+
+.post-body .title a {
+  color: #ff3300;
+  text-decoration: none;
+}
+
+.post-body .title a:hover {
+  color: #616161;
 }
 
 .post-body .description {
