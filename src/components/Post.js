@@ -50,6 +50,9 @@ class Post extends Component {
                   </a>
                 </h2>
                 <p className='description'>{ description }</p>
+                <div className="writer">
+                  Escrito por: <img src={ writer_avatar_url } className="img-circle" />
+                </div>
               </Col>
             </Row>
           </Col>
