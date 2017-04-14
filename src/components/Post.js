@@ -3,6 +3,21 @@ import { Row, Col } from 'react-bootstrap';
 import '../stylesheets/post.css';
 
 class Post extends Component {
+  constructor() {
+    super();
+
+    this.onUpVoteClick = this.onUpVoteClick.bind(this);
+    this.onDownVoteClick = this.onDownVoteClick.bind(this);
+  }
+
+  onUpVoteClick() {
+    this.props.onUpVoteClick(this.props.post.id)
+  }
+
+  onDownVoteClick() {
+    this.props.onDownVoteClick(this.props.post.id)
+  }
+
   render() {
     const {
       title,
@@ -23,9 +38,9 @@ class Post extends Component {
             <Row>
               <Col lg={1} md={1} sm={1} xs={2}>
                 <div className='votes'>
-                  <span className='upvote-arrow'></span>
+                  <span className='upvote-arrow' onClick={ this.onUpVoteClick }></span>
                   <span className='upvote-count'>{ votes }</span>
-                  <span className='downvote-arrow'></span>
+                  <span className='downvote-arrow' onClick={ this.onDownVoteClick }></span>
                 </div>
               </Col>
               <Col lg={11} md={11} sm={11} xs={10}>

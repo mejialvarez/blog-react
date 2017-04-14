@@ -18,6 +18,7 @@
 }
 
 .post-body .upvote-arrow {
+  cursor: pointer;
   display: block;
   border-bottom: 9px solid #534540;
   border-left: 7px solid transparent;
@@ -26,6 +27,7 @@
 }
 
 .post-body .downvote-arrow {
+  cursor: pointer;
   display: block;
   border-bottom: 9px solid transparent;
   border-left: 7px solid transparent;

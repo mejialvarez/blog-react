@@ -12,11 +12,14 @@ class App extends Component {
     super();
 
     this.state = {
-      posts
+      posts,
+      filterDescActived: true
     }
 
     this.sortAscPosts = this.sortAscPosts.bind(this);
     this.sortDesPosts = this.sortDesPosts.bind(this);
+    this.addVote = this.addVote.bind(this);
+    this.removeVote = this.removeVote.bind(this);
   }
 
   sortAscPosts() {
@@ -33,8 +36,36 @@ class App extends Component {
     })
   }
 
-  componentWillMount() {
-    this.sortDesPosts();
+  addVote(postId) {
+    const postVotesUpdated = this.state.posts.map((post) => {
+      if(post.id === postId) {
+        post.votes++;
+      }
+      return post;
+    });
+
+    this.setState({
+      posts: postVotesUpdated
+    });
+    this.state.filterDescActived ? this.sortDesPosts() : this.sortAscPosts();
+  }
+
+  removeVote(postId) {
+    const postVotesUpdated = this.state.posts.map((post) => {
+      if(post.id === postId) {
+        post.votes--;
+      }
+      return post;
+    });
+
+    this.setState({
+      posts: postVotesUpdated
+    });
+    this.state.filterDescActived ? this.sortDesPosts() : this.sortAscPosts();
+  }
+
+  componentDidMount() {
+    this.state.filterDescActived ? this.sortDesPosts() : this.sortAscPosts();
   }
   
   render() {
@@ -43,16 +74,22 @@ class App extends Component {
         <Row>
           <Col sm={8} smOffset={2}>
             <Header />
+
             <div className='filter-box'>
               <span>Orden:</span>
-              <FilterButton onFilterClick={ this.sortAscPosts } actived={ !this.state.filterDescActived } className="filter-asc">
+              <FilterButton onFilterClick={ this.sortAscPosts } actived={ !this.state.filterDescActived }>
                 Ascendente
               </FilterButton>
-              <FilterButton onFilterClick={ this.sortDesPosts } actived={ this.state.filterDescActived } className="filter-desc">
+              <FilterButton onFilterClick={ this.sortDesPosts } actived={ this.state.filterDescActived }>
                 Descendente
               </FilterButton>
             </div>
-            <PostList posts={ this.state.posts } />
+
+            <PostList 
+              posts={ this.state.posts } 
+              onPostUpVoteClick={ this.addVote } 
+              onPostDownVoteClick={ this.removeVote } 
+            />
           </Col>
         </Row>
       </Grid>
