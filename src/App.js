@@ -64,7 +64,7 @@ class App extends Component {
     this.state.filterDescActived ? this.sortDesPosts() : this.sortAscPosts();
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.state.filterDescActived ? this.sortDesPosts() : this.sortAscPosts();
   }
   
