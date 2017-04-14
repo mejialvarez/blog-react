@@ -51,7 +51,7 @@ class Post extends Component {
                 </h2>
                 <p className='description'>{ description }</p>
                 <div className="writer">
-                  Escrito por: <img src={ writer_avatar_url } className="img-circle" />
+                  Escrito por: <img src={ writer_avatar_url } className="img-circle" alt="writer" />
                 </div>
               </Col>
             </Row>
